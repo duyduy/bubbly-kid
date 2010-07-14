@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS styles for IE browsers */
+
+@font-face {
+ font-family: "Walkway Bold";
+ src: url("../font/WalkwayBold.eot") !important;
+}
+
+@font-face {
+ font-family: "Walkway Black";
+ src: url("../font/WalkwayBlack.eot") !important;
+}
