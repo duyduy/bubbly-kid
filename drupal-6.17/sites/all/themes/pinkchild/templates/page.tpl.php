@@ -146,6 +146,9 @@
   <!-- start content -->
   <div id="contentbg">
     <div id="container">
+	  <div id="header_nav">
+		   <?php print $sidebar_first; ?> 
+	  </div>
       <div id="mainContent">
         <div id="right_side">
          <?php if($title_enable):?>
@@ -173,26 +176,18 @@
           
           <!--end right column-->
         </div>
-        <div id="left_side">
-          <!--start search-->
-          <div class="box_pink" style="visibility:hidden;">
-            <div class="top">
-              <div class="title">Search</div>
-            </div>
-
-          </div>
-          <!--end search-->
-          <!--start size-->
-          <div class="box_pink">
-			 <?php print $sidebar_first; ?>
-          </div>
-          <!--end size-->
-          <!--start color-->
-
-          <!--end color-->
-          <img src="<?php print url($directory) ?>/images/we_accept.gif"   width="189" height="82" alt="We Accept" /></div>
+        
       </div>
-      <hr class="clear" />
+	   <hr class="clear" />
+	  	     <div id="bot_nav">
+		    <ul >
+              <li><a  href="<?php print $front_page; ?>">About us </a></li>
+              <li ><a  href="<?php print $front_page; ?>"> Terms and Coditions</a></li>
+              <li> <a  href="<?php print $front_page; ?>">Shipping</a> </li>
+              <li><a  href="<?php print $front_page; ?>">Contact </a></li>
+            </ul>
+		 </div>
+     
     </div>
     <!-- start footer -->
     <div id="footer">

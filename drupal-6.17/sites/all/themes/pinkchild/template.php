@@ -117,6 +117,7 @@ function pinkchild_preprocess_page(&$vars, $hook) {
 		
 	}
 	//var_dump($vars['template_files']);
+    //var_dump($vars);
 }
 // */
 
@@ -163,24 +164,39 @@ function pinkchild_preprocess_comment(&$vars, $hook) {
  * @param $hook
  *   The name of the template being rendered ("block" in this case.)
  */
-/* -- Delete this line if you want to use this function
+//* -- Delete this line if you want to use this function
 function pinkchild_preprocess_block(&$vars, $hook) {
   $vars['sample_variable'] = t('Lorem ipsum.');
+  //var_dump($vars);
 }
 // */
 function pinkchild_uc_catalog_product_grid($products) {
   
   $product_table = '<ul class="product_list">';
-  $count = 0;
+  $count = 1;
   $context = array(
     'revision' => 'themed',
     'type' => 'product',
   );
   foreach ($products as $nid) {
     $product = node_load($nid);
-    $context['subject'] = array('node' => $product);              
-
-      $product_table .= "<li><div class=\"product\">";
+    $context['subject'] = array('node' => $product);
+    switch ($count){
+        case 1:
+        case 2:
+                  $product_table .= "<li class=\"p-first\"><div class=\"product \">";
+                  break;
+        case 3:
+                  $product_table .= "<li class=\"p-first p-last\"><div class=\"product \">";
+                  break;
+        default:
+                if ($count % variable_get('uc_catalog_grid_display_width', 3) == 0) {
+                    $product_table .= "<li class=\"p-last\"><div class=\"product \">"; 
+                }else{
+                    $product_table .= "<li><div class=\"product \">";    
+                }        
+    }  
+            
 
 
     $titlelink = l($product->title, "node/$nid", array('html' => TRUE));
@@ -354,5 +370,18 @@ function  pinkchild_uc_cart_block_title($title, $icon_class = 'cart-empty', $col
     $output .= '<span class="cart-block-title-bar">'. $title .'</span>';
   }
   
+  return $output;
+}
+
+function pinkchild_uc_catalog_block($menu_tree) {
+  $output = '<ul >';
+  
+  foreach ($menu_tree->children as $branch) {
+    list($inpath, $html) = _uc_catalog_navigation($branch);
+    $output .= $html.'<li style="font-size:26px;">|</li>';
+  }
+  $output = rtrim($output,'<li style="font-size:26px;">|</li>') ;
+  $output .= '</ul>';
+
   return $output;
 }
