@@ -74,8 +74,9 @@
  */
 ?>
 <div id="product_full">
-
-            <div class="left">
+            <?php print $node->content['image']["#value"]; ?>
+			
+            <div class="right">
               <h1><?php print $title; ?></h1>
               <?php print $node->content['model']["#value"]; ?>
               <?php print $node->content['body']['#value']; ?>
@@ -84,7 +85,7 @@
               <!--price pannel-->
               <?php print $node->content['display_price']['#value']; ?>
                 
-              <div class="button"><a href="javascript:$('.add-to-cart').find('form').submit()"><img src="<?php print url($directory) ?>/images/button_addtocart_lg.gif"  width="165" height="31" alt="Add to Cart" /></a></div>
+              <div class="button"><a href="javascript:$('.add-to-cart').find('form').submit()"><img src="<?php print url($directory) ?>/images/add-to-cart.jpg"  width="165" height="31" alt="Add to Cart" /></a></div>
               <!--end price-->
               <ul id="buttons">
                 <li><a href="javascript:history.back(1)" ><img src="<?php print url($directory) ?>/images/button_back.gif"  alt="Back" width="92" height="20" border="0" /></a></li>
@@ -93,7 +94,7 @@
               
             </div>
             <!--end left-->
-            <?php print $node->content['image']["#value"]; ?>
+           
            
 
             <!--end right-->
@@ -134,3 +135,14 @@
 
   <?php print $links; ?>
 </div> <!-- /.node -->
+
+<div id="tabs">
+			<ul>
+				<li><a href="#tabs-1">First</a></li>
+				<li><a href="#tabs-2">Second</a></li>
+				<li><a href="#tabs-3">Third</a></li>
+			</ul>
+			<div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+			<div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
+			<div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+		</div>

@@ -101,9 +101,14 @@ function pinkchild_preprocess(&$vars, $hook) {
  */
 //* -- Delete this line if you want to use this function
 function pinkchild_preprocess_page(&$vars, $hook) {
-	if ($vars['node']->type == 'product') {
+	if ($vars['node']->type == 'product') {    
 		drupal_add_js(drupal_get_path('theme', 'pinkchild') . '/js/cloud-zoom.1.0.2/cloud-zoom.1.0.2.min.js', 'theme');	
 		drupal_add_css(drupal_get_path('theme', 'pinkchild') . '/js/cloud-zoom.1.0.2/cloud-zoom.css', 'theme');
+        
+        drupal_add_js(drupal_get_path('theme', 'pinkchild') . '/js/ui-jquery/jquery-ui-1.7.3.custom.min.js', 'theme');    
+        drupal_add_css(drupal_get_path('theme', 'pinkchild') . '/js/ui-jquery/css/flick/jquery-ui-1.7.3.custom.css', 'theme'); 
+       
+         drupal_add_js('$(function(){$(\'#tabs\').tabs();});', 'inline');
 		$vars['css'] = drupal_add_css();
 		$vars['styles'] = drupal_get_css();
 	}
@@ -116,6 +121,7 @@ function pinkchild_preprocess_page(&$vars, $hook) {
 		drupal_add_js(drupal_get_path('theme', 'pinkchild') . '/js/cu3er-v0.9.2/js/swfobject/swfobject.js', 'theme');	
 		
 	}
+    $variables['scripts'] = drupal_get_js(); 
 	//var_dump($vars['template_files']);
     //var_dump($vars);
 }
@@ -247,12 +253,12 @@ function pinkchild_uc_product_image($images, $teaser = 0, $page = 0) {
   
   //$first = array_shift($images);
   $first   = $images[0];
-  $output = '<div class="right"><div style="border:1px solid #DFDFDF;">';
+  $output = '<div class="left"><div >';
   $output .= '<a href="'. imagecache_create_url('product_full', $first['filepath']) .'" title="'. $first['data']['title'] .'"';
   if ($image_widget) {
     $output .= $image_widget_func($rel_count);
   }
-  $output .= ' class = "cloud-zoom" id="zoom1" rel="adjustX: 0, adjustY:0 , position:\'left\' ">'; 
+  $output .= ' class = "cloud-zoom" id="zoom1" rel="adjustX: 0, adjustY:0 ">'; 
   $output .= theme('imagecache', 'product', $first['filepath'], $first['alt'], $first['title']);
   $output .= '</a></div><ul class="small_thumb">';
 
@@ -288,7 +294,7 @@ function pinkchild_uc_product_body($body, $teaser = 0, $page = 0) {
   return $output;
 }
 function pinkchild_uc_product_price($price, $context, $options = array()) {
-  $output = '<div id="product_cart"><div class="price">';
+  $output = '<div id="product_cart"><div class="price"><div class="text-price" >Price:</div>';
   $output .= uc_price($price, $context, $options);
   $output .= '</div></div>';
 

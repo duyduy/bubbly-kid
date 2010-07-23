@@ -117,6 +117,7 @@
   <?php print $head; ?>
   <?php print $styles; ?>
   <?php print $scripts; ?>
+  
 </head>
 <body class="<?php print $classes; ?>">
 <div id="bodybg">
@@ -134,7 +135,7 @@
 	</div>
     <?php endif; ?>
     <!--end cart-->
-    <ul id="navigation" style="position:relative; z-index:30;">
+    <ul id="navigation" >
       
       <?php print $header; ?>    
      

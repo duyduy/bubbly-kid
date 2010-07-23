@@ -121,7 +121,7 @@
 <body class="<?php print $classes; ?>">
 <div id="bodybg">
   <div id="header">
-  <div id="cart">
+  <div id="cart" >
       <ul class="text">
         <li><a href="#">de</a></li>
         <li style="border:none;"><a href="#">en</a></li>
@@ -129,15 +129,17 @@
     </div>
 
      <?php if ($logo): ?>
-	 <div id="header_logo">
+	 <div id="header_logo"  >
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
 	</div>
     <?php endif; ?>
     <!--end cart-->
-    <ul id="navigation" style="position:relative; z-index:30;">
+	
+    <ul id="navigation">
       
       <?php print $header; ?>        
     </ul>
+	
   </div>
   <!-- end header -->
   <!-- start content -->
