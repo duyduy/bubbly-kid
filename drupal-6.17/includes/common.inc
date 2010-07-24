@@ -2023,7 +2023,7 @@ function drupal_load_stylesheet($file, $optimize = NULL) {
       // Perform some safe CSS optimizations.
       $contents = preg_replace('<
         \s*([@{}:;,]|\)\s|\s\()\s* |  # Remove whitespace around separators, but keep space around parentheses.
-        /\*([^*\\\\]|\*(?!/))+\*/     # Remove comments that are not CSS hacks.
+     //   /\*([^*\\\\]|\*(?!/))+\*/     # Remove comments that are not CSS hacks.
         >x', '\1', $contents);
     }
 

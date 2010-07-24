@@ -79,7 +79,7 @@
             <div class="right">
               <h1><?php print $title; ?></h1>
               <?php print $node->content['model']["#value"]; ?>
-              <?php print $node->content['body']['#value']; ?>
+              
               <?php print $node->content['add_to_cart']['#value']; ?>
               
               <!--price pannel-->
@@ -100,49 +100,15 @@
             <!--end right-->
           </div>
           
-          
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix">
-  <?php print $user_picture; ?>
-
-  <?php if (!$page): ?>
-    <h2 class="title"><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
-  <?php endif; ?>
-
-  <?php if ($unpublished): ?>
-    <div class="unpublished"><?php print t('Unpublished'); ?></div>
-  <?php endif; ?>
-
-  <?php if ($display_submitted || $terms): ?>
-    <div class="meta">
-      <?php if ($display_submitted): ?>
-        <span class="submitted">
-          <?php
-            print t('Submitted by !username on !datetime',
-              array('!username' => $name, '!datetime' => $date));
-          ?>
-        </span>
-      <?php endif; ?>
-
-      <?php if ($terms): ?>
-        <div class="terms terms-inline"><?php print $terms; ?></div>
-      <?php endif; ?>
-    </div>
-  <?php endif; ?>
-
-  <div class="content">
-    <?php //print $content; ?>
-  </div>
-
-  <?php print $links; ?>
-</div> <!-- /.node -->
+         <div style="clear:both"></div>
 
 <div id="tabs">
 			<ul>
-				<li><a href="#tabs-1">First</a></li>
-				<li><a href="#tabs-2">Second</a></li>
-				<li><a href="#tabs-3">Third</a></li>
+				<li><a href="#tabs-1">Description</a></li>
+				<li><a href="#tabs-2">Sizing chart</a></li>
+				<li><a href="#tabs-3">You may also like</a></li>
 			</ul>
-			<div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+			<div id="tabs-1"><?php print $node->content['body']['#value']; ?> </div>
 			<div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
 			<div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
 		</div>
