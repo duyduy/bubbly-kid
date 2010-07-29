@@ -109,6 +109,6 @@
 				<li><a href="#tabs-3">You may also like</a></li>
 			</ul>
 			<div id="tabs-1"><?php print $node->content['body']['#value']; ?> </div>
-			<div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
+			<div id="tabs-2"><?php print $node->field_sizing_chart[0]['value'];?></div>
 			<div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
 		</div>
