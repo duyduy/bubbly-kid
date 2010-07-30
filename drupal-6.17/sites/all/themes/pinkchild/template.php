@@ -258,7 +258,7 @@ function pinkchild_uc_product_image($images, $teaser = 0, $page = 0) {
   if ($image_widget) {
     $output .= $image_widget_func($rel_count);
   }
-  $output .= ' class = "cloud-zoom" id="zoom1" rel="adjustX: 0, adjustY:0 ">'; 
+  $output .= ' class = "cloud-zoom" id="zoom1" rel="tint: \'#EEEEEE\',tintOpacity:0.5 ,smoothMove:5,adjustX: 0, adjustY:0 ">'; 
   $output .= theme('imagecache', 'product', $first['filepath'], $first['alt'], $first['title']);
   $output .= '</a></div><ul class="small_thumb">';
 
