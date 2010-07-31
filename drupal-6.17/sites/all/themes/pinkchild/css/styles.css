@@ -771,7 +771,7 @@ ul.small_thumb {
 	height:28px;
 }
 th { /*top row of the table*/
-	background-color:#ffd4e5;
+	/*background-color:#ffd4e5;*/
 	color:#b61a54;
 	font-weight:bold;
 	border-bottom:1px solid #ffffff;

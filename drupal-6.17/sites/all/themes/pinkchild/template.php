@@ -391,3 +391,42 @@ function pinkchild_uc_catalog_block($menu_tree) {
 
   return $output;
 }
+
+// Cart theme 
+function pinkchild_uc_cart_view_form($form) {   
+  drupal_add_css(drupal_get_path('module', 'uc_cart') .'/uc_cart.css');
+
+  $output = '<div id="cart-form-products">'
+          . drupal_render($form['items']) .'</div>';
+
+  foreach (element_children($form['items']) as $i) {
+    foreach (array('title', 'options', 'remove', 'image', 'qty') as $column) {
+      $form['items'][$i][$column]['#printed'] = TRUE;
+    }
+    $form['items'][$i]['#printed'] = TRUE;
+  }
+
+  // Add the continue shopping element and cart submit buttons.
+  if (($type = variable_get('uc_continue_shopping_type', 'link')) != 'none') {
+    // Render the continue shopping element into a variable.
+   
+    $cs_element = drupal_render($form['continue_shopping']);
+    
+    $update     = drupal_render($form['update']);
+    // Add the element with the appropriate markup based on the display type.
+    if ($type == 'link') {
+      $output .= '<div id="cart-form-buttons"><div id="continue-shopping-link">'
+               . $update .'</div>'.$cs_element. drupal_render($form) .'</div>';
+    }
+    elseif ($type == 'button') {
+      $output .= '<div id="cart-form-buttons"><div id="update-checkout-buttons">'
+               . drupal_render($form) .'</div><div id="continue-shopping-button">'
+               . $cs_element .'</div></div>';
+    }
+  }
+  else {
+    $output .= '<div id="cart-form-buttons">'. drupal_render($form) .'</div>';
+  }
+
+  return $output;
+}
